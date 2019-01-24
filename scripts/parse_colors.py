@@ -7,6 +7,7 @@ __author__ = 'konifar'
 import requests, xml.etree.ElementTree as ET
 import os
 import sys
+import re
 
 class ColorAttr:
     def __init__(self, name):
@@ -41,7 +42,7 @@ for file in attrFiles:
         name = str(attr.get('name'))
         name = name.replace('android:', '') # For MaterialComponents attrs.xml
 
-        if (format == 'color' or format == 'reference|color' or name.find('color') > -1):
+        if (format == 'color' or re.search('color', name, re.IGNORECASE)):
             if (colorAttrsDict.has_key(name)):
                 colorAttr = colorAttrsDict[name]
             else:
@@ -59,7 +60,6 @@ f.write('\n')
 
 for key in sorted(colorAttrsDict):
     colorAttr = colorAttrsDict[key]
-    print(colorAttr.dict)
     f.write(colorAttr.name)
     f.write(' | ')
     f.write(getEachCellValue('android_framework', colorAttr))
