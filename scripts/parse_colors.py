@@ -40,9 +40,11 @@ for file in attrFiles:
     for attr in root.iter('attr'):
         format = str(attr.get('format'))
         name = str(attr.get('name'))
-        name = name.replace('android:', '') # For MaterialComponents attrs.xml
 
         if (format == 'color' or re.search('color', name, re.IGNORECASE)):
+            if (re.search('android:', name)):
+                continue
+
             if (colorAttrsDict.has_key(name)):
                 colorAttr = colorAttrsDict[name]
             else:
