@@ -36,22 +36,26 @@ for file in attrFiles:
     print("Start parsing: " + fileName)
     tree = ET.ElementTree(file=fileName)
     root = tree.getroot()
+    for styleable in root.iter('declare-styleable'):
+        styleableName = str(styleable.get('name'))
+        if not (re.search('theme', styleableName, re.IGNORECASE)):
+            continue
 
-    for attr in root.iter('attr'):
-        format = str(attr.get('format'))
-        name = str(attr.get('name'))
+        for attr in styleable.iter('attr'):
+            format = str(attr.get('format'))
+            name = str(attr.get('name'))
 
-        if (format == 'color' or re.search('color', name, re.IGNORECASE)):
-            if (re.search('android:', name)):
-                continue
+            if (format == 'color' or re.search('color', name, re.IGNORECASE)):
+                if (re.search('android:', name)):
+                    continue
 
-            if (colorAttrsDict.has_key(name)):
-                colorAttr = colorAttrsDict[name]
-            else:
-                colorAttr = ColorAttr(name)
+                if (colorAttrsDict.has_key(name)):
+                    colorAttr = colorAttrsDict[name]
+                else:
+                    colorAttr = ColorAttr(name)
 
-            colorAttr.put(baseName, True)
-            colorAttrsDict[name] = colorAttr
+                colorAttr.put(baseName, True)
+                colorAttrsDict[name] = colorAttr
 
 # Print markdown table
 f = open('outputs/color_attrs.md', 'w')
