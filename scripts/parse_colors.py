@@ -39,8 +39,9 @@ for file in attrFiles:
     for attr in root.iter('attr'):
         format = str(attr.get('format'))
         name = str(attr.get('name'))
+        name = name.replace('android:', '') # For MaterialComponents attrs.xml
 
-        if (format.find('color') > -1):
+        if (format == 'color' or format == 'reference|color' or name.find('color') > -1):
             if (colorAttrsDict.has_key(name)):
                 colorAttr = colorAttrsDict[name]
             else:
@@ -51,7 +52,7 @@ for file in attrFiles:
 
 # Print markdown table
 f = open('outputs/color_attrs.md', 'w')
-f.write('attr name | android_framework | appcompat | material_component')
+f.write('attr name | android_framework | appcompat | material_components')
 f.write('\n')
 f.write(':-- | :--: | :--: | :--:')
 f.write('\n')
@@ -65,7 +66,7 @@ for key in sorted(colorAttrsDict):
     f.write(' | ')
     f.write(getEachCellValue('appcompat', colorAttr))
     f.write(' | ')
-    f.write(getEachCellValue('material_component', colorAttr))
+    f.write(getEachCellValue('material_components', colorAttr))
     f.write('\n')
 
 f.close()
