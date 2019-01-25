@@ -45,11 +45,9 @@ for file in attrFiles:
             format = str(attr.get('format'))
             name = str(attr.get('name'))
 
-            if (name == 'colorOnBackground'):
-                print(format == 'None')
-
-            if ((format == 'reference' and re.search('(background|divider|indicator)', name, re.IGNORECASE))
-              or (format == 'None' and re.search('(background|divider|indicator)', name, re.IGNORECASE) and not re.search('color', name, re.IGNORECASE))):
+            if (re.search('(reference|None)', format)
+              and re.search('(background|divider|indicator|highlight)', name, re.IGNORECASE)
+              and not re.search('(color|style)', name, re.IGNORECASE)):
                 if (re.search('android:', name)):
                     continue
 

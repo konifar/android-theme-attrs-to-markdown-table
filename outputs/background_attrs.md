@@ -5,6 +5,7 @@ actionBarItemBackground | ◯ | ◯ | ー
 actionModeBackground | ◯ | ◯ | ー
 actionModeSplitBackground | ◯ | ◯ | ー
 activatedBackgroundIndicator | ◯ | ー | ー
+autofilledHighlight | ◯ | ー | ー
 controlBackground | ー | ◯ | ー
 detailsElementBackground | ◯ | ー | ー
 dividerHorizontal | ◯ | ◯ | ー
@@ -14,7 +15,6 @@ errorMessageAboveBackground | ◯ | ー | ー
 errorMessageBackground | ◯ | ー | ー
 fastScrollPreviewBackgroundLeft | ◯ | ー | ー
 fastScrollPreviewBackgroundRight | ◯ | ー | ー
-floatingToolbarDividerColor | ◯ | ー | ー
 floatingToolbarItemBackgroundBorderlessDrawable | ◯ | ー | ー
 floatingToolbarItemBackgroundDrawable | ◯ | ー | ー
 floatingToolbarPopupBackgroundDrawable | ◯ | ー | ー
@@ -25,13 +25,13 @@ listChoiceIndicatorMultiple | ◯ | ー | ー
 listChoiceIndicatorSingle | ◯ | ー | ー
 listDivider | ◯ | ー | ー
 listDividerAlertDialog | ◯ | ◯ | ー
-panelBackground | ー | ◯ | ー
-ratingBarStyleIndicator | ◯ | ◯ | ー
+panelBackground | ◯ | ◯ | ー
+panelFullBackground | ◯ | ー | ー
 scrimBackground | ー | ー | ◯
+searchWidgetCorpusItemBackground | ◯ | ー | ー
 selectableItemBackground | ◯ | ◯ | ー
 selectableItemBackgroundBorderless | ◯ | ◯ | ー
 toastFrameBackground | ◯ | ー | ー
 tooltipFrameBackground | ◯ | ◯ | ー
 windowBackground | ◯ | ー | ー
 windowBackgroundFallback | ◯ | ー | ー
-windowTitleBackgroundStyle | ◯ | ー | ー

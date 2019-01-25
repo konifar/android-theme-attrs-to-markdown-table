@@ -3,7 +3,7 @@ Simple tool to parse Android theme attrs.xml to markdown table.
 
 ## Outputs
 - [colors](https://github.com/konifar/android-theme-attrs-to-markdown-table/blob/master/outputs/color_attrs.md)
-- [backgrounds](https://github.com/konifar/android-theme-attrs-to-markdown-table/blob/master/outputs/color_backgrounds.md)
+- [backgrounds](https://github.com/konifar/android-theme-attrs-to-markdown-table/blob/master/outputs/backgrounds_attrs.md)
 
 ## Run
 ### Color attributes
