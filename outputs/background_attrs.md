@@ -1,0 +1,26 @@
+attr name | android_framework | appcompat | material_components
+:-- | :--: | :--: | :--:
+actionBarItemBackground | ◯ | ◯ | ー
+actionModeBackground | ◯ | ◯ | ー
+actionModeSplitBackground | ◯ | ◯ | ー
+activatedBackgroundIndicator | ◯ | ー | ー
+controlBackground | ー | ◯ | ー
+detailsElementBackground | ◯ | ー | ー
+editTextBackground | ◯ | ◯ | ー
+errorMessageAboveBackground | ◯ | ー | ー
+errorMessageBackground | ◯ | ー | ー
+fastScrollPreviewBackgroundLeft | ◯ | ー | ー
+fastScrollPreviewBackgroundRight | ◯ | ー | ー
+floatingToolbarItemBackgroundBorderlessDrawable | ◯ | ー | ー
+floatingToolbarItemBackgroundDrawable | ◯ | ー | ー
+floatingToolbarPopupBackgroundDrawable | ◯ | ー | ー
+galleryItemBackground | ◯ | ー | ー
+listChoiceBackgroundIndicator | ◯ | ◯ | ー
+panelBackground | ー | ◯ | ー
+selectableItemBackground | ◯ | ◯ | ー
+selectableItemBackgroundBorderless | ◯ | ◯ | ー
+toastFrameBackground | ◯ | ー | ー
+tooltipFrameBackground | ◯ | ◯ | ー
+windowBackground | ◯ | ー | ー
+windowBackgroundFallback | ◯ | ー | ー
+windowTitleBackgroundStyle | ◯ | ー | ー
