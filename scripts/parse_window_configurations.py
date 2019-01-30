@@ -67,7 +67,7 @@ f.write('\n')
 
 for key in sorted(attributesDict):
     attribute = attributesDict[key]
-    f.write(attribute.name)
+    f.write('[' + attribute.name + '](https://developer.android.com/reference/android/R.attr.html#' + attribute.name + ')')
     f.write(' | ')
     f.write(getEachCellValue('android_framework', attribute))
     f.write(' | ')
