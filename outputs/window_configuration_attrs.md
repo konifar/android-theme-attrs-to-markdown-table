@@ -6,13 +6,17 @@ windowActionModeOverlay | ◯ | ◯ | ー
 windowActivityTransitions | ◯ | ー | ー
 windowAllowEnterTransitionOverlap | ◯ | ー | ー
 windowAllowReturnTransitionOverlap | ◯ | ー | ー
+windowClipToOutline | ◯ | ー | ー
 windowCloseOnTouchOutside | ◯ | ー | ー
 windowContentTransitions | ◯ | ー | ー
 windowDisablePreview | ◯ | ー | ー
+windowDrawsSystemBarBackgrounds | ◯ | ー | ー
 windowEnableSplitTouch | ◯ | ー | ー
 windowFullscreen | ◯ | ー | ー
 windowIsFloating | ◯ | ー | ー
 windowIsTranslucent | ◯ | ー | ー
+windowLightNavigationBar | ◯ | ー | ー
+windowLightStatusBar | ◯ | ー | ー
 windowNoDisplay | ◯ | ー | ー
 windowNoTitle | ◯ | ◯ | ー
 windowOverscan | ◯ | ー | ー

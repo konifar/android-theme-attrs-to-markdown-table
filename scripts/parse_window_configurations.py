@@ -39,7 +39,7 @@ for file in attrFiles:
     root = tree.getroot()
     for styleable in root.iter('declare-styleable'):
         styleableName = str(styleable.get('name'))
-        if not (re.search('theme', styleableName, re.IGNORECASE)):
+        if not (re.search('theme', styleableName, re.IGNORECASE)) and (styleableName != 'Window'):
             continue
 
         for attr in styleable.iter('attr'):
