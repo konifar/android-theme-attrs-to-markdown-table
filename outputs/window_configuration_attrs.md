@@ -1,0 +1,23 @@
+attr name | android_framework | appcompat | material_components
+:-- | :--: | :--: | :--:
+windowActionBar | ◯ | ◯ | ー
+windowActionBarOverlay | ◯ | ◯ | ー
+windowActionModeOverlay | ◯ | ◯ | ー
+windowActivityTransitions | ◯ | ー | ー
+windowAllowEnterTransitionOverlap | ◯ | ー | ー
+windowAllowReturnTransitionOverlap | ◯ | ー | ー
+windowCloseOnTouchOutside | ◯ | ー | ー
+windowContentTransitions | ◯ | ー | ー
+windowDisablePreview | ◯ | ー | ー
+windowEnableSplitTouch | ◯ | ー | ー
+windowFullscreen | ◯ | ー | ー
+windowIsFloating | ◯ | ー | ー
+windowIsTranslucent | ◯ | ー | ー
+windowNoDisplay | ◯ | ー | ー
+windowNoTitle | ◯ | ◯ | ー
+windowOverscan | ◯ | ー | ー
+windowSharedElementsUseOverlay | ◯ | ー | ー
+windowShowWallpaper | ◯ | ー | ー
+windowSwipeToDismiss | ◯ | ー | ー
+windowTranslucentNavigation | ◯ | ー | ー
+windowTranslucentStatus | ◯ | ー | ー
