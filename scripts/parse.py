@@ -1,8 +1,16 @@
 # -*- coding: utf-8 -*-
+# Parameters:
+#   - background
+#   - color
+#   - shape_appearance
+#   - text_appearance
+#   - theme
+#   - widget_style
+#   - window_configuration
 # Output image:
 #   attr name | android_framework | app_compat | material_component
 #   :-- | :--: | :--: | :--:
-#   textAppearance | ◯ | ◯ | ー
+#   editTextBackground | ◯ | ◯ | ー
 __author__ = 'konifar'
 import requests, xml.etree.ElementTree as ET
 import os
@@ -20,14 +28,46 @@ class Attribute:
     def has(self, key):
         return self.dict.has_key(key)
 
+class Category:
+    def __init__(self, name):
+        self.name = name
+
+    def checkStyleableName(self, styleableName):
+        if self.name == 'theme':
+            return not re.search('theme', styleableName, re.IGNORECASE) and styleableName != 'Window'
+        if self.name == 'window_configuration':
+            return not (re.search('theme', styleableName, re.IGNORECASE)) and (styleableName != 'Window')
+        else:
+            return not re.search('theme', styleableName, re.IGNORECASE)
+
+    def check(self, format, attrName):
+        if self.name == 'background':
+            return re.search('(reference|None)', format) and re.search('(background|divider|indicator|highlight)', attrName, re.IGNORECASE) and not re.search('(color|style)', attrName, re.IGNORECASE)
+        elif self.name == 'color':
+            return format == 'color' or re.search('color', attrName, re.IGNORECASE)
+        elif self.name == 'shape_appearance':
+            return re.search('shape', attrName, re.IGNORECASE)
+        elif self.name == 'text_appearance':
+            return re.search('textAppearance', attrName, re.IGNORECASE)
+        elif self.name == 'theme':
+            return re.search('theme', attrName, re.IGNORECASE)
+        elif self.name == 'widget_style':
+            return re.search('style', attrName, re.IGNORECASE)
+        elif self.name == 'window_configuration':
+            return re.search('window', attrName, re.IGNORECASE) and format == 'boolean'
+
+
 def getEachCellValue(key, attribute):
     if (attribute.has(key)):
         return '◯'
     else:
         return 'ー'
 
-outputFileName = 'outputs/window_configuration_attrs.md'
 attributesDict = {}
+
+args = sys.argv
+
+category = Category(args[1])
 
 # Parse attr xml files
 attrFiles = os.listdir('attrs')
@@ -39,14 +79,14 @@ for file in attrFiles:
     root = tree.getroot()
     for styleable in root.iter('declare-styleable'):
         styleableName = str(styleable.get('name'))
-        if not (re.search('theme', styleableName, re.IGNORECASE)) and (styleableName != 'Window'):
+        if category.checkStyleableName(styleableName):
             continue
 
         for attr in styleable.iter('attr'):
             format = str(attr.get('format'))
             name = str(attr.get('name'))
 
-            if (re.search('window', name, re.IGNORECASE) and format == 'boolean'):
+            if category.check(format, name):
                 if (re.search('android:', name)):
                     continue
 
@@ -59,7 +99,8 @@ for file in attrFiles:
                 attributesDict[name] = attribute
 
 # Print markdown table
-f = open(outputFileName, 'w')
+outputFileName = category.name + '_attrs.md'
+f = open('outputs/' + outputFileName, 'w')
 f.write('attr name | android_framework | appcompat | material_components')
 f.write('\n')
 f.write(':-- | :--: | :--: | :--:')
